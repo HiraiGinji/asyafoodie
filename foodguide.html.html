@@ -27,11 +27,12 @@
       }
     }
 
-    /* Hover animation on cards */
     .card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 350px;
+      margin: 0 auto;
     }
-
+    
     .card:hover {
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
@@ -48,7 +49,7 @@
   <main class="container py-5">
     <section class="mb-5">
       <h2 class="text-warning">Study Boosters: Asian Food & Drinks<br><br></h2>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="row row-cols-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card bg-danger text-light h-100">
             <img src="Images/Avocado.png" class="card-img-top" alt="Avocado">
@@ -103,7 +104,7 @@
 
     <section class="mb-5">
       <h2 class="text-warning">Stress Relief: Asian Food & Drinks <br><br></h2>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="row row-cols-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card bg-danger text-light h-100">
             <img src="Images/Miso.png" class="card-img-top" alt="Miso Soup">
