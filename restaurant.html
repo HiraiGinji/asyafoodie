@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Layout</title>
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">    <style>
         body{
             background-color: #000000;
@@ -17,9 +18,11 @@
             z-index: 1000;
         }
 
-        .navbar-content {
-            position: relative;
-            z-index: 1;
+        .navbar-mobile-header {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
         }
 
         .navbar-toptext {
@@ -29,12 +32,34 @@
             color: white;
         }
 
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            padding: 0.25rem;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .nav-links-container {
+            display: block;
+        }
+
+        .contact-info {
+            color: white;
+            font-size: 15px;
+        }
+
         .nav-link {
             color: white !important;
             text-transform: uppercase;
             position: relative;
             transition: color 0.3s;
             font-size: 17px;
+            padding: 8px 15px;
         }
 
         .nav-link::after {
@@ -56,8 +81,62 @@
             color: #ffcba4 !important;
         }
 
-        .contact-info {
-            font-size: 14px;
+        @media (max-width: 991.98px) {
+            .navbar-mobile-header {
+                display: flex;
+            }
+            
+            .desktop-phone {
+                display: none;
+            }
+            
+            .desktop-logo {
+                display: none;
+            }
+            
+            .nav-links-container {
+                display: none;
+                padding: 0 15px;
+            }
+            
+            .nav-links-container.show {
+                display: block;
+            }
+            
+            .nav-mobile {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .nav-link {
+                padding: 8px 0 !important;
+                display: block;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-toggler {
+                display: none;
+            }
+            
+            .nav-links-container {
+                display: block !important;
+            }
+                .desktop-phone {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .desktop-phone i {
+                margin-right: 10px;
+            }
         }
 
         .welcome-section {
@@ -213,24 +292,41 @@
 
     <div class="navbar-withcss">
         <div class="container-xxl navbar-content">
-            <div class="row">
-                <div class="col-12 text-start contact-info" style="font-size: 15px;">
-                    +63 545 329 9273
+            <div class="navbar-mobile-header">
+                <div class="navbar-toptext">ASYAFOODIE</div>
+                <button class="navbar-toggler" type="button" onclick="toggleMenu()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="row desktop-phone">
+                <div class="col-12 text-start contact-info">
+                    <i class="bi bi-telephone"></i> +63 545 329 9273
                 </div>
             </div>
-            <div class="row">
+            
+            <div class="row desktop-logo">
                 <div class="col-12 text-center">
                     <div class="navbar-toptext">ASYAFOODIE</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center my-3">
-                    <ul class="nav flex-wrap justify-content-center">
-                        <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-3" href="#">Restaurant</a></li>
-                        <li class="nav-item"><a class="nav-link px-3" href="recipe.html">Recipe</a></li>
-                        <li class="nav-item"><a class="nav-link px-3" href="#">Guides</a></li>
-                    </ul>
+            
+            <div class="nav-links-container" id="navLinks">
+                <div class="row d-lg-none">
+                    <div class="col-12 contact-info">
+                        <i class="bi bi-telephone me-2"></i> +63 545 329 9273
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center my-lg-3">
+                        <ul class="nav flex-wrap justify-content-center nav-mobile">
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="restaurant.html">Restaurant</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="recipe.html">Recipe</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="#">Guides</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,7 +345,7 @@
       
               <div class="carousel-inner h-100">
                   <div class="carousel-item active h-100 position-relative" data-map-url="https://maps.google.com/maps?q=14.5310898,121.0227339&z=17&output=embed">
-                    <a>
+                    <a href="Toyo.html">
                       <img src="Images/toyoeatery.jpg" class="d-block w-100" alt="Mount Fuji">
                       <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
                       <div class="carousel-caption d-flex flex-column justify-content-end h-100 pb-2">
@@ -260,7 +356,7 @@
                   </div>
                 
                   <div class="carousel-item h-100 position-relative" data-map-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.615403920968!2d120.9752145!3d14.5894137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca3d15555555%3A0xd7fa11c3d1a7d1f!2sBarbara&#39;s%20Heritage%20Restaurant!5e0!3m2!1sen!2sph!4v1717577777777!5m2!1sen!2sph">
-                    <a>
+                    <a href="Barbara.html">
                       <img src="Images/barbara.jpg" class="d-block w-100" alt="Osaka Castle">
                       <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
                       <div class="carousel-caption d-flex flex-column justify-content-end h-100 pb-2">
@@ -271,7 +367,7 @@
                   </div>
                 
                   <div class="carousel-item h-100 position-relative" data-map-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.181478494902!2d121.037259!3d14.5967664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9c005fc895f%3A0x30fa859e93427f16!2sL%C3%A1grima%20San%20Juan!5e0!3m2!1sen!2sph!4v1717577777777!5m2!1sen!2sph">
-                    <a>
+                    <a href="Juan.html">
                       <img src="Images/sanjuan.jpg" class="d-block w-100" alt="Imperial Palace">
                       <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
                       <div class="carousel-caption d-flex flex-column justify-content-end h-100 pb-2">
@@ -282,7 +378,7 @@
                   </div>
                 
                   <div class="carousel-item h-100 position-relative" data-map-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.181478494902!2d120.9801375!3d14.5323209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cbf96930e1f1%3A0xb312e76964d4e421!2sChina%20Blue%20By%20Jereme%20Leung!5e0!3m2!1sen!2sph!4v1717577777777!5m2!1sen!2sph">
-                    <a>
+                    <a href="China.html">
                       <img src="Images/chinablue.jpg" class="d-block w-100" alt="Arashiyama Bamboo Grove">
                       <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
                       <div class="carousel-caption d-flex flex-column justify-content-end h-100 pb-2">
@@ -361,22 +457,32 @@
                 <div class="col-md-3">
                     <h5 class="footer-heading">RESTAURANT</h5>
                     <ul class="footer-list">
-                        <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Toyo Eatery</a></li>
-                        <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Barbara's Heritage Restaurant</a></li>
-                        <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Lágrima San Juan</a></li>
-                        <li class="footer-list-item"><a href="restaurant.html" class="footer-link">China Blue By Jereme Leung </a></li>
+                        <li class="footer-list-item"><a href="Toyo.html" class="footer-link">Toyo Eatery</a></li>
+                        <li class="footer-list-item"><a href="Barbara.html" class="footer-link">Barbara's Heritage Restaurant</a></li>
+                        <li class="footer-list-item"><a href="Juan.html" class="footer-link">Lágrima San Juan</a></li>
+                        <li class="footer-list-item"><a href="China.html" class="footer-link">China Blue By Jereme Leung</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h5 class="footer-heading">RECIPE</h5>
-                    <ul class="footer-list">
-                        <li class="footer-list-item"><a href="#" class="footer-link">Katsudon</a></li>
-                        <li class="footer-list-item"><a href="#" class="footer-link">Adobo</a></li>
-                        <li class="footer-list-item"><a href="#" class="footer-link">Peking Duck</a></li>
-                        <li class="footer-list-item"><a href="#" class="footer-link">Pad Thai</a></li>
-                        <li class="footer-list-item"><a href="#" class="footer-link">Takoyaki</a></li>
-                        <li class="footer-list-item"><a href="#" class="footer-link">Jasmine Tea</a></li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="footer-list">
+                                <li class="footer-list-item"><a href="#" class="footer-link">Katsudon</a></li>
+                                <li class="footer-list-item"><a href="#" class="footer-link">Adobo</a></li>
+                                <li class="footer-list-item"><a href="#" class="footer-link">Peking Duck</a></li>
+                                <li class="footer-list-item"><a href="#" class="footer-link">Pad Thai</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="footer-list">
+                                <li class="footer-list-item"><a href="#" class="footer-link">Takoyaki</a></li>
+                                <li class="footer-list-item"><a href="#" class="footer-link">Turon</a></li>
+                                <li class="footer-list-item"><a href="#" class="footer-link">Soju Mojito</a></li>
+                                <li class="footer-list-item"><a href="#" class="footer-link">Jasmine Tea</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-3">
                     <h5 class="footer-heading">GUIDES</h5>
@@ -409,13 +515,13 @@
                 website: "https://toyoeatery.com/",
                 phone: "+63 917 720 8630",
                 hours: [
-                    "Su Sunday: Permanently closed",
-                    "Mo Monday: Permanently closed",
-                    "Tu Tuesday: Permanently closed",
-                    "We Wednesday: Permanently closed",
-                    "Th Thursday: Permanently closed",
-                    "Fr Friday: Permanently closed",
-                    "Sa Saturday: Permanently closed"
+                    "Su Sunday: Closed",
+                    "Mo Monday: Closed",
+                    "Tu Tuesday: 6:00 PM-11:00 PM",
+                    "We Wednesday: 6:00 PM-11:00 PM",
+                    "Th Thursday: 6:00 PM-11:00 PM",
+                    "Fr Friday: 6:00 PM-11:00 PM",
+                    "Sa Saturday: 6:00 PM-11:00 PM"
                 ],
                 description: "Toyo Eatery, a celebrated name in the Philippines' vibrant culinary scene, continues to redefine Filipino cuisine with its inventive spirit. Even amidst recent challenges, the restaurant, alongside its beloved sister bakeshop Panaderya Toyo, has delighted diners with imaginative bilao presentations, showcasing their popular barbecue skewers and signature silog fried rice. Now, the spotlight shines even brighter on the creative force behind it all, Chef Jordy Navarra, as he gears up to host the highly anticipated Philippine installment of the prestigious global food event, Gelinaz! This exciting development promises to further solidify Toyo Eatery's position as a culinary destination pushing the boundaries of Filipino flavors on an international stage.",
                 specialtyImage: "Images/yakitori.jpg",
@@ -507,6 +613,13 @@
             const activeIndex = Array.from(carousel.querySelectorAll('.carousel-item')).indexOf(carousel.querySelector(".carousel-item.active"));
             updateRestaurantDetails(activeIndex);
         });
+    </script>
+    
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script></body>
 </html>

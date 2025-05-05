@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Blue By Jereme Leung</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">    <style>
+        body {
+            background-color: #fcfcfc;
+            overflow-x: hidden;
+        }
+        .navbar-withcss {
+            position: sticky;
+            top: 0;
+            background-color: #9c0f0f;
+            color: white;
+            z-index: 1000;
+        }
+
+        .navbar-mobile-header {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .navbar-toptext {
+            font-weight: bold;
+            font-size: 30px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            padding: 0.25rem;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .nav-links-container {
+            display: block;
+        }
+
+        .contact-info {
+            color: white;
+            font-size: 15px;
+        }
+
+        .nav-link {
+            color: white !important;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 17px;
+            padding: 8px 15px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #ffcba4 !important;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-mobile-header {
+                display: flex;
+            }
+            
+            .desktop-phone {
+                display: none;
+            }
+            
+            .desktop-logo {
+                display: none;
+            }
+            
+            .nav-links-container {
+                display: none;
+                padding: 0 15px;
+            }
+            
+            .nav-links-container.show {
+                display: block;
+            }
+            
+            .nav-mobile {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .nav-link {
+                padding: 8px 0 !important;
+                display: block;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-toggler {
+                display: none;
+            }
+            
+            .nav-links-container {
+                display: block !important;
+            }
+                .desktop-phone {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .desktop-phone i {
+                margin-right: 10px;
+            }
+        }
+        .hero-section {
+            padding: 80px 0;
+            text-align: left;
+            color: #333;
+        }
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .download-button, .order-button {
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 400;
+            margin-right: 15px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        .download-button {
+            background-color: #51087E;
+            color: white;
+        }
+        .download-button:hover {
+            background-color: #7e35b3;
+        }
+        .order-button {
+            background-color: #f1c40f;
+            color: #333;
+        }
+        .order-button:hover {
+            background-color: #f0b207;
+        }
+
+        .carousel-container {
+            width: 100%;
+            position: relative;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+        .slider {
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 3vh ;
+            min-height: 500px;
+        }
+        .list {
+            display: flex;
+            transition: transform 0.5s ease;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .item {
+            min-width: 330px;
+            width: 330px;
+            height: 330px;
+            margin: 0 15px;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.5s ease;
+        }
+        .item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            margin: 0 200px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        .item.active img {
+            transform: scale(1.1);
+            filter: none;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+        .item:not(.active) img {
+            filter: blur(2px) brightness(0.8);
+            transform: scale(0.85);
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(81, 8, 126, 0.7);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #prev {
+            left: 10px;
+        }
+        #next {
+            right: 10px;
+        }
+        .circle {
+            position: absolute;
+            margin: 0 400px; 
+            top: 50%;
+            left: -10%;
+            width: 410x;
+            height: 410px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: rotateCircle 20s linear infinite;
+        }
+        .circle span {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform-origin: center 205px;
+            transform: rotate(var(--rotate)) translateY(-50%);
+            color: #ff3333;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        @keyframes rotateCircle {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .description-box {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            display: none;
+        }
+
+        @media (max-width: 1396px) {
+          .circle {
+            position: absolute;
+            margin: 0 400px; 
+            top: 50%;
+            left: -10%;
+            width: 380px;
+            height: 380px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: rotateCircle 20s linear infinite;
+        }
+          .circle span {
+              transform-origin: center 190px;
+              font-size: 1.1rem;
+              letter-spacing: 2px;
+          }
+          .item {
+            min-width: 300px;
+            width: 300px;
+            height: 300px;
+            margin: 0 15px;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.5s ease;
+        }
+          .item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            margin: 0 230px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+      }
+        @media (max-width: 1200px) {
+          .circle {
+            position: absolute;
+            margin: 0 400px; 
+            top: 50%;
+            left: -10%;
+            width: 350px;
+            height: 350px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: rotateCircle 20s linear infinite;
+        }
+          .circle span {
+              transform-origin: center 175px;
+              font-size: 1.1rem;
+              letter-spacing: 2px;
+          }
+          .item {
+            min-width: 280px;
+            width: 280px;
+            height: 280px;
+            margin: 0 15px;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.5s ease;
+        }
+          .item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            margin: 0 238px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .slider {
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: -2vh ;
+            min-height: 365px;
+        }
+            .circle {
+            position: absolute;
+            margin: 0 400px; 
+            top: 50%;
+            left: -115%;
+            width: 300px;
+            height: 300px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: rotateCircle 20s linear infinite;
+        }
+          .circle span {
+              transform-origin: center 150px;
+              font-size: 1.1rem;
+              letter-spacing: 2px;
+          }
+          .item {
+            min-width: 230px;
+            width: 230px;
+            height: 230px;
+            margin: 0 15px;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.5s ease;
+        }
+          .item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            margin: 0 28px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .download-button, .order-button {
+                margin: 8px;
+                width: 80%;
+                max-width: 250px;
+            }
+            .carousel-container {
+            }
+            .circle {
+            position: absolute;
+            margin: 0 400px; 
+            top: 48%;
+            left: -80%;
+            width: 280px;
+            height: 280px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: rotateCircle 20s linear infinite;
+        }
+          .circle span {
+              transform-origin: center 140px;
+              font-size: 1.1rem;
+              letter-spacing: 2px;
+          }
+          .item {
+            min-width: 225px;
+            width: 225px;
+            height: 225px ;
+            margin: 0 15px;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.5s ease;
+        }
+          .item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            margin: 0 118px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+            .nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+            .slider {
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0vh ;
+            min-height: 315px;
+        }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .item {
+                min-width: 160px;
+                width: 160px;
+                height: 160px;
+                margin: 0 15px;
+            }
+            .circle {
+            position: absolute;
+            margin: 0 400px; 
+            top: 50%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: rotateCircle 20s linear infinite;
+        }
+          .circle span {
+              transform-origin: center 150px;
+              font-size: 1.1rem;
+              letter-spacing: 2px;
+          }
+            .description-box {
+                margin-top: 10px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .item {
+                min-width: 200px;
+                width: 200px;
+                height: 200px;
+                margin: 0 15px;
+            }
+            .item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            margin: 0 88px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+            .circle {
+            position: absolute;
+            margin: 0 400px; 
+            top: 47%;
+            left: -110%;
+            width: 250px;
+            height: 250px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: rotateCircle 20s linear infinite;
+        }
+          .circle span {
+              transform-origin: center 125px;
+              font-size: 1.1rem;
+              letter-spacing: 2px;
+          }
+          .slider {
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0vh ;
+            min-height: 350px;
+        }
+        }
+
+        .footer {
+            background-color: #9c0f0f;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list-item {
+            margin-bottom: 8px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .testimonials {
+        background-color: #111;
+        }
+        
+        .testimonial-card {
+            background-color: #9c0f0f;
+            border: none;
+            transition: all 0.3s ease;
+            transform: scale(1);
+            color: white;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        
+        .rating {
+            color: #f8d64e;
+            font-size: 1.2rem;
+        }
+        
+        .star {
+            margin-right: 2px;
+        }
+        
+        .rating span:last-child {
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-card p,
+        .testimonial-card strong {
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-withcss">
+        <div class="container-xxl navbar-content">
+            <div class="navbar-mobile-header">
+                <div class="navbar-toptext">ASYAFOODIE</div>
+                <button class="navbar-toggler" type="button" onclick="toggleMenu()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="row desktop-phone">
+                <div class="col-12 text-start contact-info">
+                    <i class="bi bi-telephone"></i> +63 545 329 9273
+                </div>
+            </div>
+            
+            <div class="row desktop-logo">
+                <div class="col-12 text-center">
+                    <div class="navbar-toptext">ASYAFOODIE</div>
+                </div>
+            </div>
+            
+            <div class="nav-links-container" id="navLinks">
+                <div class="row d-lg-none">
+                    <div class="col-12 contact-info">
+                        <i class="bi bi-telephone me-2"></i> +63 545 329 9273
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center my-lg-3">
+                        <ul class="nav flex-wrap justify-content-center nav-mobile">
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="restaurant.html">Restaurant</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="recipe.html">Recipe</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="#">Guides</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <h1 class="hero-title">China Blue By Jereme Leung</h1>
+                    <p class="hero-subtitle">
+                        China Blue by Jereme Leung, located within the Conrad Manila, brings a sophisticated and modern interpretation of traditional Chinese cuisine to the Philippines. Spearheaded by the internationally acclaimed Master Chef Jereme Leung, the restaurant offers a dining experience that seamlessly blends authentic flavors with contemporary culinary techniques. Since its establishment, China Blue has become a prominent destination for gourmands seeking refined Chinese cooking, boasting a stylish ambiance characterized by glittering blue chandeliers and panoramic views of Manila Bay, creating an elegant yet welcoming atmosphere for its patrons.</p>
+                    <p class="hero-subtitle">
+                        Chef Jereme Leung's vision for China Blue was consciously tailored for the Manila market, thoughtfully incorporating local nuances into his expertly crafted menu. The restaurant quickly gained recognition for its exceptional dim sum and barbecued specialties, establishing itself as a leader in contemporary Chinese gastronomy in the country. Signature creations like the much-imitated steamed truffle mushroom bun and the succulent honey-glazed Matsusaka pork neck have garnered widespread acclaim, highlighting the innovative spirit and culinary artistry that define the China Blue by Jereme Leung experience.</p>
+                    <div class="d-flex flex-wrap justify-content-center justify-content-md-start">
+                    </div>
+                </div>                    
+                <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-4 mt-lg-0">
+                    <div class="carousel-container">
+                        <div class="slider">
+                            <div class="list">
+                                <div class="item active">
+                                    <img src="Images/Sea Bass.png" alt="Mämmi">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="item">
+                                    <img src="Images/Chicken soup.png" alt="Yakitori">
+                                </div>
+                                <div class="item">
+                                    <img src="Images/Dimsum.png" alt="Mochi">
+                                </div>
+                            </div>
+                            <button id="prev" class="nav-btn">&#10094;</button>
+                            <button id="next" class="nav-btn">&#10095;</button>
+                        </div>
+                        <div class="description-box" id="description1">
+                            <h4>Sea Bass</h4>
+                            <p>Presented on a pristine white plate, the expertly steamed sea bass is bathed in a light, fragrant soy-based sauce, its subtle umami enhancing the inherent flavors of the sea.
+                                Adorning the fish are vibrant sprigs of fresh herbs, likely including cilantro and perhaps delicate strands of ginger or scallion, adding a refreshing aromatic lift to the dish. The gentle steaming process ensures the fish remains incredibly moist and tender, offering a melt-in-your-mouth experience.</p>
+                        </div>
+                        <div class="description-box" id="description2">
+                            <h4>Chicken Soup</h4>
+                            <p>Served in an elegant, pristine white bowl, the consommé is remarkably clear, hinting at the hours of gentle simmering that have melded the essence of the finest chicken with carefully selected ingredients. Within the luminous broth, you'll discover tender pieces of chicken, likely accompanied by delicate additions such as fragrant mushrooms, verdant baby bok choy, and the subtle sweetness of goji berries.</p>
+                        </div>
+                        <div class="description-box" id="description3">
+                            <h4>Dim sum</h4>
+                            <p>Presented in a traditional bamboo steamer, these three perfectly formed buns boast a unique, glossy charcoal-black exterior, giving them an air of contemporary elegance.  Adorning each bun are delicate, hand-painted gold stripes, adding a touch of opulence and artistry. Nestled within their soft, yielding exterior is a warm,流沙 (liú shā) or "flowing sand" salted egg yolk custard filling. This signature filling is rich, slightly sweet, and possesses a wonderfully smooth, molten texture that oozes out with each bite, creating a delightful contrast with the fluffy bun.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="testimonials py-4 pb-5">
+        <div class="container">
+            <h3 class="text-center mb-4 display-6 fw-bold text-white">What Our Guests Are Saying</h3>
+            <div class="row justify-content-center g-4">
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="card p-3 shadow rounded-4 testimonial-card h-100 mx-2">
+                        <div class="rating mb-2 text-white">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="ms-2 text-white small">5/5</span>
+                        </div>
+                        <p class="mb-2 fs-6 text-white">"Dining at China Blue is always a special occasion. The elegant ambiance with the stunning bay view sets the perfect stage for Chef Jereme Leung's exquisite dishes. Their dim sum is truly exceptional - the Black Gold Egg Custard Buns are a must-try, and I still dream about the truffle mushroom buns!"</p>
+                        <strong class="d-block text-end text-white small">- Isabelle S.</strong>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="card p-3 shadow rounded-4 testimonial-card h-100 mx-2">
+                        <div class="rating mb-2 text-white">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="ms-2 text-white small">5/5</span>
+                        </div>
+                        <p class="mb-2 fs-6 text-white">"As someone who appreciates fine Chinese cuisine, China Blue consistently exceeds my expectations. The quality of the ingredients and the artistry of the presentation are remarkable. The honey-glazed Matsusaka pork neck is incredibly succulent, and the delicate flavors of their steamed dishes are simply divine. It's a world-class dining experience"</p>
+                        <strong class="d-block text-end text-white small">- Kenji T.</strong>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="card p-3 shadow rounded-4 testimonial-card h-100 mx-2">
+                        <div class="rating mb-2 text-white">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="ms-2 text-white small">5/5</span>
+                        </div>
+                        <p class="mb-2 fs-6 text-white">"China Blue offers a sophisticated yet welcoming atmosphere. The service is impeccable, and the menu features a fantastic blend of traditional and modern Chinese flavors. Their barbecued specialties are outstanding, and the dim sum selection is truly top-notch. It's easily one of the best contemporary Chinese restaurants I've experienced."</p>
+                        <strong class="d-block text-end text-white small">- David B.</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="container-fluid footer">
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="footer-heading">RESTAURANT</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="Toyo.html" class="footer-link">Toyo Eatery</a></li>
+                    <li class="footer-list-item"><a href="Barbara.html" class="footer-link">Barbara's Heritage Restaurant</a></li>
+                    <li class="footer-list-item"><a href="Juan.html" class="footer-link">Lágrima San Juan</a></li>
+                    <li class="footer-list-item"><a href="China.html" class="footer-link">China Blue By Jereme Leung</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">RECIPE</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="footer-list">
+                            <li class="footer-list-item"><a href="#" class="footer-link">Katsudon</a></li>
+                            <li class="footer-list-item"><a href="#" class="footer-link">Adobo</a></li>
+                            <li class="footer-list-item"><a href="#" class="footer-link">Peking Duck</a></li>
+                            <li class="footer-list-item"><a href="#" class="footer-link">Pad Thai</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="footer-list">
+                            <li class="footer-list-item"><a href="#" class="footer-link">Takoyaki</a></li>
+                            <li class="footer-list-item"><a href="#" class="footer-link">Turon</a></li>
+                            <li class="footer-list-item"><a href="#" class="footer-link">Soju Mojito</a></li>
+                            <li class="footer-list-item"><a href="#" class="footer-link">Jasmine Tea</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">GUIDES</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#" class="footer-link">Guide1</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Guide2</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">CONTACT</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#" class="footer-link">Contact1</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Contact2</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const list = document.querySelector('.list');
+            const prev = document.getElementById('prev');
+            const next = document.getElementById('next');
+            const items = document.querySelectorAll('.list .item');
+            const count = items.length;
+            let active = 0;
+            let itemWidth = items[0].offsetWidth + 30;
+            
+            const circleTexts = [
+                "China Blue • Menu • Sea Bass • ",
+                "China Blue Juan • Menu • Chicken Soup • ",
+                "China Blue Juan • Menu • Dim Sum • "
+            ];
+            
+            document.getElementById('description1').style.display = 'block';
+            
+            centerActiveItem();
+            
+            window.addEventListener('resize', function() {
+                itemWidth = items[0].offsetWidth + 30;
+                centerActiveItem();
+            });
+            
+            next.addEventListener('click', () => {
+                if (active >= count - 1) return;
+                active++;
+                updateCarousel();
+            });
+            
+            prev.addEventListener('click', () => {
+                if (active <= 0) return;
+                active--;
+                updateCarousel();
+            });
+            
+            function centerActiveItem() {
+                const containerWidth = document.querySelector('.carousel-container').offsetWidth;
+                const centerPosition = (containerWidth / 2) - (itemWidth / 2);
+                const offset = centerPosition - (active * itemWidth);
+                list.style.transform = `translateX(${offset}px)`;
+            }
+            
+            function updateCarousel() {
+                document.querySelectorAll('.description-box').forEach(box => {
+                    box.style.display = 'none';
+                });
+                
+                document.getElementById(`description${active+1}`).style.display = 'block';
+                
+                items.forEach(item => item.classList.remove('active'));
+                items[active].classList.add('active');
+                
+                items.forEach(item => {
+                    const oldCircle = item.querySelector('.circle');
+                    if (oldCircle) oldCircle.remove();
+                });
+                
+                const newCircle = document.createElement('div');
+                newCircle.className = 'circle';
+                const currentText = circleTexts[active];
+                currentText.split('').forEach((char, key) => {
+                    const newSpan = document.createElement("span");
+                    newSpan.innerText = char;
+                    const rotateDeg = (360 / currentText.length) * key;
+                    newSpan.style.setProperty('--rotate', rotateDeg + 'deg');
+                    newCircle.appendChild(newSpan);
+                });
+                items[active].appendChild(newCircle);
+                
+                centerActiveItem();
+                
+                prev.style.display = active === 0 ? 'none' : 'block';
+                next.style.display = active === count - 1 ? 'none' : 'block';
+            }
+            
+            updateCarousel();
+        });
+    </script>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pad Thai Recipe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"></head>
+<style>
+        .navbar-withcss {
+            position: sticky;
+            top: 0;
+            background-color: #9c0f0f;
+            color: white;
+            z-index: 1000;
+        }
+
+        .navbar-mobile-header {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .navbar-toptext {
+            font-weight: bold;
+            font-size: 30px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            padding: 0.25rem;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .nav-links-container {
+            display: block;
+        }
+
+        .contact-info {
+            color: white;
+            font-size: 15px;
+        }
+
+        .nav-link {
+            color: white !important;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 17px;
+            padding: 8px 15px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #ffcba4 !important;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-mobile-header {
+                display: flex;
+            }
+            
+            .desktop-phone {
+                display: none;
+            }
+            
+            .desktop-logo {
+                display: none;
+            }
+            
+            .nav-links-container {
+                display: none;
+                padding: 0 15px;
+            }
+            
+            .nav-links-container.show {
+                display: block;
+            }
+            
+            .nav-mobile {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .nav-link {
+                padding: 8px 0 !important;
+                display: block;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-toggler {
+                display: none;
+            }
+            
+            .nav-links-container {
+                display: block !important;
+            }
+                .desktop-phone {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .desktop-phone i {
+                margin-right: 10px;
+            }
+        }
+
+    .welcome-section {
+        padding: 20px;
+    }
+
+    .welcome-heading {
+        color: #000000;
+        font-size: 40px;
+    }
+
+    .welcome-heading1 {
+        color: #9c0f0f;
+        font-size: 40px;
+    }
+
+    .navigate-section {
+        background-color: #000000;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .footer {
+        background-color: #9c0f0f;
+        color: white;
+        padding: 30px 20px;
+    }
+
+    .footer-heading {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .footer-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-list-item {
+        margin-bottom: 8px;
+    }
+
+    .footer-link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-link:hover {
+        text-decoration: underline;
+    }
+
+    img.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    }
+</style>
+
+<body class="bg-black text-light">
+    <div class="navbar-withcss">
+        <div class="container-xxl navbar-content">
+            <div class="navbar-mobile-header">
+                <div class="navbar-toptext">ASYAFOODIE</div>
+                <button class="navbar-toggler" type="button" onclick="toggleMenu()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="row desktop-phone">
+                <div class="col-12 text-start contact-info">
+                    <i class="bi bi-telephone"></i> +63 545 329 9273
+                </div>
+            </div>
+            
+            <div class="row desktop-logo">
+                <div class="col-12 text-center">
+                    <div class="navbar-toptext">ASYAFOODIE</div>
+                </div>
+            </div>
+            
+            <div class="nav-links-container" id="navLinks">
+                <div class="row d-lg-none">
+                    <div class="col-12 contact-info">
+                        <i class="bi bi-telephone me-2"></i> +63 545 329 9273
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center my-lg-3">
+                        <ul class="nav flex-wrap justify-content-center nav-mobile">
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="restaurant.html">Restaurant</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="recipe.html">Recipe</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="#">Guides</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <header class="bg-black text-white text-center py-4 mb-4">
+    <a href ="https://www.allrecipes.com/recipe/42968/pad-thai/"  class = "text-decoration-none text-danger"><h1>Pad Thai Recipe</h1></a>
+    <p class="lead">Authentic Thai Dish</p>
+  </header>
+
+<div class="container mb-4">
+    <div class="card mb-4 border-0">
+        <div class="row g-0">
+            <div class="col-md-5 bg-black">
+                <img src="Images/PadThai.png" class="img-fluid" alt="Peking Duck Dish">
+            </div>
+            <div class="col-md-7 bg-black text-white">
+                <div class="card-body">
+                    <h1 class="card-title">What is Pad Thai?</h1>
+                    <p class="card-text fs-4">Pad Thai is like a warm blanket. It’s a comfort food of our age, with those chewy noodles, crunchy peanuts, the sweet and tangy sauce, and plenty of chives, bean sprouts, and chicken to make it a full meal. </p>
+                    <p class="card-text"><small class="text-danger">Prep time: 10 mins | Cook time: 15 mins | Additional Time: 20 mins</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-4 mb-4">
+        <h4 class = "text-danger">Ingredients</h4>
+        <form>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing1"><label class="form-check-label" for="ing1">1 (12 ounce) package rice noodles</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing2"><label class="form-check-label" for="ing2">2 tablespoons butter</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing3"><label class="form-check-label" for="ing3">1 pound boneless, skinless chicken breast halves, cut into bite-sized pieces</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing4"><label class="form-check-label" for="ing4">¼ cup vegetable oil</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing5"><label class="form-check-label" for="ing5">4 eggs</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing6"><label class="form-check-label" for="ing6">3 tablespoons white sugar</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing7"><label class="form-check-label" for="ing7">2 tablespoons fish sauce</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing8"><label class="form-check-label" for="ing8">1 tablespoon white wine vinegar</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing9"><label class="form-check-label" for="ing9">⅛ tablespoon crushed red pepper</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing10"><label class="form-check-label" for="ing10">2 cups bean sprouts</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing11"><label class="form-check-label" for="ing11">3 green onions, chopped</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing12"><label class="form-check-label" for="ing12">¼ cup crushed peanuts</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="ing13"><label class="form-check-label" for="ing13">1 lemon, cut into wedges</label></div>
+          </form>
+      </div>
+      <div class="col-md-8">
+        <h4 class="text-danger">Instructions</h4>
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item bg-black text-light">Gather all ingredients.</li>
+          <li class="list-group-item bg-black text-light">Soak rice noodles in cold water until soft, 30 to 50 minutes. Drain and set aside.</li>
+          <li class="list-group-item bg-black text-light">Meanwhile, heat butter in a wok; add chicken and sauté until browned. Remove chicken and set aside.</li>
+          <li class="list-group-item bg-black text-light">Heat oil in the wok over medium-high heat. Crack eggs into hot oil and cook until firm. Stir in chicken and cook for 5 minutes.</li>
+          <li class="list-group-item bg-black text-light">Add softened noodles, sugar, fish sauce, vinegar, and red pepper; mix well until noodles are tender. Adjust seasonings to taste.</li>
+          <li class="list-group-item bg-black text-light">Stir bean sprouts into wok and cook for 3 minutes.</li>
+          <li class="list-group-item bg-black text-light">Serve topped with green onions, crushed peanuts, and a wedge of lemon.</li>
+        </ol>
+      </div>
+    </div>      
+  </div>
+  <br><br>
+  <div class="container-fluid footer">
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="footer-heading">RESTAURANT</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Toyo Eatery</a></li>
+                    <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Barbara's Heritage Restaurant</a></li>
+                    <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Lágrima San Juan</a></li>
+                    <li class="footer-list-item"><a href="restaurant.html" class="footer-link">China Blue By Jereme Leung </a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">RECIPE</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#" class="footer-link">Katsudon</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Adobo</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Peking Duck</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Pad Thai</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Takoyaki</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Jasmine Tea</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">GUIDES</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#" class="footer-link">Guide1</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Guide2</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">CONTACT</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#" class="footer-link">Contact1</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Contact2</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('show');
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>

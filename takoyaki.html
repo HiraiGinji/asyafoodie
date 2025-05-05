@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Takoyaki Recipe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"></head>
+<style>
+        .navbar-withcss {
+            position: sticky;
+            top: 0;
+            background-color: #9c0f0f;
+            color: white;
+            z-index: 1000;
+        }
+
+        .navbar-mobile-header {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .navbar-toptext {
+            font-weight: bold;
+            font-size: 30px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            padding: 0.25rem;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .nav-links-container {
+            display: block;
+        }
+
+        .contact-info {
+            color: white;
+            font-size: 15px;
+        }
+
+        .nav-link {
+            color: white !important;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 17px;
+            padding: 8px 15px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #ffcba4 !important;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-mobile-header {
+                display: flex;
+            }
+            
+            .desktop-phone {
+                display: none;
+            }
+            
+            .desktop-logo {
+                display: none;
+            }
+            
+            .nav-links-container {
+                display: none;
+                padding: 0 15px;
+            }
+            
+            .nav-links-container.show {
+                display: block;
+            }
+            
+            .nav-mobile {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .nav-link {
+                padding: 8px 0 !important;
+                display: block;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-toggler {
+                display: none;
+            }
+            
+            .nav-links-container {
+                display: block !important;
+            }
+                .desktop-phone {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .desktop-phone i {
+                margin-right: 10px;
+            }
+        }
+
+    .welcome-section {
+        padding: 20px;
+    }
+
+    .welcome-heading {
+        color: #000000;
+        font-size: 40px;
+    }
+
+    .welcome-heading1 {
+        color: #9c0f0f;
+        font-size: 40px;
+    }
+
+    .navigate-section {
+        background-color: #000000;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .footer {
+        background-color: #9c0f0f;
+        color: white;
+        padding: 30px 20px;
+    }
+
+    .footer-heading {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .footer-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-list-item {
+        margin-bottom: 8px;
+    }
+
+    .footer-link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-link:hover {
+        text-decoration: underline;
+    }
+
+    img.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    }
+</style>
+
+<body class="bg-black text-light">
+    <div class="navbar-withcss">
+        <div class="container-xxl navbar-content">
+            <div class="navbar-mobile-header">
+                <div class="navbar-toptext">ASYAFOODIE</div>
+                <button class="navbar-toggler" type="button" onclick="toggleMenu()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="row desktop-phone">
+                <div class="col-12 text-start contact-info">
+                    <i class="bi bi-telephone"></i> +63 545 329 9273
+                </div>
+            </div>
+            
+            <div class="row desktop-logo">
+                <div class="col-12 text-center">
+                    <div class="navbar-toptext">ASYAFOODIE</div>
+                </div>
+            </div>
+            
+            <div class="nav-links-container" id="navLinks">
+                <div class="row d-lg-none">
+                    <div class="col-12 contact-info">
+                        <i class="bi bi-telephone me-2"></i> +63 545 329 9273
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center my-lg-3">
+                        <ul class="nav flex-wrap justify-content-center nav-mobile">
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="restaurant.html">Restaurant</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="recipe.html">Recipe</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3" href="#">Guides</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <header class="bg-black text-white text-center py-4 mb-4">
+    <a href ="https://www.wandercooks.com/quick-and-easy-takoyaki-recipe/"  class = "text-decoration-none text-danger"><h1>Takoyaki Recipe</h1></a>
+    <p class="lead">Japanese Streetfood</p>
+  </header>
+
+<div class="container mb-4">
+    <div class="card mb-4 border-0">
+        <div class="row g-0">
+            <div class="col-md-5 bg-black">
+                <img src="Images/Takoyaki.png" class="img-fluid" alt="Takoyaki">
+            </div>
+            <div class="col-md-7 bg-black text-white">
+                <div class="card-body">
+                    <h1 class="card-title">What is Takoyaki?</h1>
+                    <p class="card-text fs-4"> Takoyaki is a round, fried food made from batter, small pieces of tender octopus and other ingredients, like green onions and ginger. They are considered a Japanese street food are popular at festivals, often prepared from food stands right in front of the prospective customers. </p>
+                    <p class="card-text"><small class="text-danger">Prep time: 10 mins | Cook time: 10 mins</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <div class="container">
+    <div class="row">
+      
+    <div class="col-md-4 mb-4">
+        <h4 class="text-danger">Ingredients</h4>
+        <form>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki1"><label class="form-check-label" for="takoyaki1">450 ml dashi stock (15.21 fl oz, sub chicken/veg stock)</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki2"><label class="form-check-label" for="takoyaki2">140 g plain flour / all-purpose flour (4.93 oz)</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki3"><label class="form-check-label" for="takoyaki3">10 g cornstarch / cornflour (0.35 oz)</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki4"><label class="form-check-label" for="takoyaki4">1 egg</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki5"><label class="form-check-label" for="takoyaki5">120 g octopus (4.23 oz, 2cm pieces; sub chicken, ham, bacon or cheese)</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki6"><label class="form-check-label" for="takoyaki6">1/2 cup spring onion / green onion, chopped</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki7"><label class="form-check-label" for="takoyaki7">1–2 tbsp beni shoga / red pickled ginger, chopped</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki8"><label class="form-check-label" for="takoyaki8">1/2 cup tenkasu (crispy tempura crumbs)</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki9"><label class="form-check-label" for="takoyaki9">Takoyaki sauce or okonomiyaki sauce</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki10"><label class="form-check-label" for="takoyaki10">Kewpie mayonnaise</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki11"><label class="form-check-label" for="takoyaki11">Seaweed flakes / aonori</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="takoyaki12"><label class="form-check-label" for="takoyaki12">Bonito flakes / katsuobushi</label></div>
+        </form>
+        </div>
+          
+      <div class="col-md-8">
+        <h4 class="text-danger">Instructions</h4>
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item bg-black text-light">Combine the plain flour and cornstarch in a bowl. In a separate bowl, whisk the egg. Add the egg to the dry mixture, then slowly pour in the dashi stock or water and whisk it all together. You're aiming for a thin, runny consistency here, so if it's too thick just add more water or dashi.</li>
+          <li class="list-group-item bg-black text-light">Heat the takoyaki pan over medium-high heat and brush oil over the entire surface. Pour the batter into the center of the pan and keep pouring until all the wells are full and the batter covers the entire plate.</li>
+          <li class="list-group-item bg-black text-light">Place one piece of octopus (or other protein) into each well, then scatter the spring onion, ginger, and tempura crumbs across the lot.</li>
+          <li class="list-group-item bg-black text-light">When the bottom of the batter starts turning crispy, use a chopstick to cut out a square shape around each takoyaki well.</li>
+          <li class="list-group-item bg-black text-light">Move your chopstick in an ‘L’ shape around each well, then immediately push down into the well to flip the batter, forming a rough ball shape as you go.</li>
+          <li class="list-group-item bg-black text-light">Continue flipping each ball occasionally as the batter becomes crispy and golden brown on all sides. The easiest way to do this is to pierce the takoyaki ball with the chopstick and pull upwards to flip.</li>
+        </ol>
+      </div>
+    </div>         
+  </div>
+  <br><br>
+  <div class="container-fluid footer">
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="footer-heading">RESTAURANT</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Toyo Eatery</a></li>
+                    <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Barbara's Heritage Restaurant</a></li>
+                    <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Lágrima San Juan</a></li>
+                    <li class="footer-list-item"><a href="restaurant.html" class="footer-link">China Blue By Jereme Leung </a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">RECIPE</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#" class="footer-link">Katsudon</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Adobo</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Peking Duck</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Pad Thai</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Takoyaki</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Jasmine Tea</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">GUIDES</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#" class="footer-link">Guide1</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Guide2</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="footer-heading">CONTACT</h5>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="#" class="footer-link">Contact1</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Contact2</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('show');
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
