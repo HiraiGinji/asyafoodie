@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Layout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">    <style>
+        body{
+            background-color: #000000;
+        }
+        
+        .navbar-withcss {
+            position: sticky;
+            top: 0;
+            background-color: #9c0f0f;
+            color: white;
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-toptext {
+            font-weight: bold;
+            font-size: 30px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .nav-link {
+            color: white !important;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 17px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #ffcba4 !important;
+        }
+
+        .contact-info {
+            font-size: 14px;
+        }
+
+        .welcome-section {
+            padding: 20px;
+        }
+
+        .welcome-heading {
+            color: #000000;
+            font-size: 40px;
+        }
+
+        .welcome-heading1 {
+            color: #9c0f0f;
+            font-size: 40px;
+        }
+
+        .navigate-section {
+            background-color: #000000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .grid-container {
+            background-color: black;
+            padding: 80px;
+        }
+
+        .grid-item {
+            background-color: #9c0f0f;
+            height: 300px;
+            border-radius: 5px;
+        }
+
+        .footer {
+            background-color: #9c0f0f;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list-item {
+            margin-bottom: 8px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .compact-carousel {
+            height: 500px;
+        }
+        
+        .compact-carousel .carousel-inner,
+        .compact-carousel .carousel-item {
+            height: 100%;
+        }
+        
+        .compact-carousel img {
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .compact-map-container {
+            height: 500px;
+        }
+        
+        .compact-map {
+            height: 250px;
+            
+        }
+        
+        .compact-details {
+            padding: 15px;
+            overflow-y: auto;
+            height: 248px;
+            background-color: #9c0f0f;
+        }
+        
+        .compact-details h5 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: #ffffff;
+        }
+        
+        .compact-details p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .specialty-image-container {
+        width: 100%;
+        max-width: 1300px;
+        height: 0;
+        padding-bottom: 23.07%;
+        position: relative;
+        overflow: hidden;
+        border: 3px solid #9c0f0f;
+        border-radius: 15px;
+        margin: 0 auto;
+        }
+
+        .specialty-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .specialty-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            background-color: rgba(156, 15, 15, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .description-text {
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-withcss">
+        <div class="container-xxl navbar-content">
+            <div class="row">
+                <div class="col-12 text-start contact-info" style="font-size: 15px;">
+                    +63 545 329 9273
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="navbar-toptext">ASYAFOODIE</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center my-3">
+                    <ul class="nav flex-wrap justify-content-center">
+                        <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="#">Restaurant</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="recipe.html">Recipe</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="#">Guides</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-3">
+        <div class="row">
+          <div class="col-md-7">
+            <div id="destinationsCarousel" class="carousel slide compact-carousel" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#destinationsCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#destinationsCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#destinationsCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#destinationsCarousel" data-bs-slide-to="3"></button>
+              </div>
+      
+              <div class="carousel-inner h-100">
+                  <div class="carousel-item active h-100 position-relative" data-map-url="https://maps.google.com/maps?q=14.5310898,121.0227339&z=17&output=embed">
+                    <a>
+                      <img src="Images/toyoeatery.jpg" class="d-block w-100" alt="Mount Fuji">
+                      <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
+                      <div class="carousel-caption d-flex flex-column justify-content-end h-100 pb-2">
+                        <h5 class="text-white fw-bold fs-4">Toyo Eatery</h5>
+                        <p class="text-white fs-6">Toyo Eatery is a renowned Filipino restaurant known for its innovative take on traditional Filipino cuisine.</p>
+                      </div>
+                    </a>
+                  </div>
+                
+                  <div class="carousel-item h-100 position-relative" data-map-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.615403920968!2d120.9752145!3d14.5894137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca3d15555555%3A0xd7fa11c3d1a7d1f!2sBarbara&#39;s%20Heritage%20Restaurant!5e0!3m2!1sen!2sph!4v1717577777777!5m2!1sen!2sph">
+                    <a>
+                      <img src="Images/barbara.jpg" class="d-block w-100" alt="Osaka Castle">
+                      <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
+                      <div class="carousel-caption d-flex flex-column justify-content-end h-100 pb-2">
+                        <h5 class="text-white fw-bold fs-4">Barbara's Heritage Restaurant</h5>
+                        <p class="text-white fs-6">Barbara's Heritage Restaurant in Manila offers a captivating blend of Filipino history, culture, and cuisine.</p>
+                      </div>
+                    </a>
+                  </div>
+                
+                  <div class="carousel-item h-100 position-relative" data-map-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.181478494902!2d121.037259!3d14.5967664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9c005fc895f%3A0x30fa859e93427f16!2sL%C3%A1grima%20San%20Juan!5e0!3m2!1sen!2sph!4v1717577777777!5m2!1sen!2sph">
+                    <a>
+                      <img src="Images/sanjuan.jpg" class="d-block w-100" alt="Imperial Palace">
+                      <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
+                      <div class="carousel-caption d-flex flex-column justify-content-end h-100 pb-2">
+                        <h5 class="text-white fw-bold fs-4">Lágrima San Juan</h5>
+                        <p class="text-white fs-6">Lágrima San Juan is a top spot for Mexican cuisine, offering a delightful dining experience.</p>
+                      </div>
+                    </a>
+                  </div>
+                
+                  <div class="carousel-item h-100 position-relative" data-map-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.181478494902!2d120.9801375!3d14.5323209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cbf96930e1f1%3A0xb312e76964d4e421!2sChina%20Blue%20By%20Jereme%20Leung!5e0!3m2!1sen!2sph!4v1717577777777!5m2!1sen!2sph">
+                    <a>
+                      <img src="Images/chinablue.jpg" class="d-block w-100" alt="Arashiyama Bamboo Grove">
+                      <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
+                      <div class="carousel-caption d-flex flex-column justify-content-end h-100 pb-2">
+                        <h5 class="text-white fw-bold fs-4">China Blue By Jereme Leung</h5>
+                        <p class="text-white fs-6">China Blue By Jereme Leung is a sophisticated restaurant located in the luxurious Conrad Hotel in Manila.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+      
+              <button class="carousel-control-prev" type="button" data-bs-target="#destinationsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#destinationsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+      
+          <div class="col-md-5 compact-map-container">
+            <div class="card h-100">
+              <div class="card-body p-0 d-flex flex-column">
+                <iframe id="mapIframe"
+                        src="https://maps.google.com/maps?q=14.5310898,121.0227339&z=17&output=embed"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        class="rounded-0 compact-map">
+                </iframe>
+                <div class="compact-details">
+                  <h5>Address</h5>
+                  <p>2316, The Alley at Karrivin, Karrivin Plaza, 1231 Chino Roces Ave Ext, Makati, Metro Manila, Philippines</p>
+                  <h5>Website</h5>
+                  <p><a href="https://toyoeatery.com/" target="_blank">https://toyoeatery.com/</a></p>
+                  <h5>Phone</h5>
+                  <p>+63 917 720 8630</p>
+                  <h5>Hours</h5>
+                  <p class="mb-1">Su Sunday: Permanently closed</p>
+                  <p class="mb-1">Mo Monday: Permanently closed</p>
+                  <p class="mb-1">Tu Tuesday: Permanently closed</p>
+                  <p class="mb-1">We Wednesday: Permanently closed</p>
+                  <p class="mb-1">Th Thursday: Permanently closed</p>
+                  <p class="mb-1">Fr Friday: Permanently closed</p>
+                  <p>Sa Saturday: Permanently closed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid py-5" style="background-color: #000000;">
+        <div class="container-xxl">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="restaurantDescription" class="description-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div id="specialtyImageContainer" class="specialty-image-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    
+    <div class="container-fluid footer">
+        <div class="container-xxl">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5 class="footer-heading">RESTAURANT</h5>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Toyo Eatery</a></li>
+                        <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Barbara's Heritage Restaurant</a></li>
+                        <li class="footer-list-item"><a href="restaurant.html" class="footer-link">Lágrima San Juan</a></li>
+                        <li class="footer-list-item"><a href="restaurant.html" class="footer-link">China Blue By Jereme Leung </a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">RECIPE</h5>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="#" class="footer-link">Katsudon</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Adobo</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Peking Duck</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Pad Thai</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Takoyaki</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Jasmine Tea</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">GUIDES</h5>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="#" class="footer-link">Guide1</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Guide2</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">CONTACT</h5>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="#" class="footer-link">Contact1</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Contact2</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mapIframe = document.getElementById("mapIframe");
+        const detailsContainer = document.querySelector(".compact-details");
+        const carousel = document.getElementById("destinationsCarousel");
+        const restaurantDescription = document.getElementById("restaurantDescription");
+        const specialtyImageContainer = document.getElementById("specialtyImageContainer");
+        
+        const restaurantDetails = {
+            0: {
+                address: "2316, The Alley at Karrivin, Karrivin Plaza, 1231 Chino Roces Ave Ext, Makati, Metro Manila, Philippines",
+                website: "https://toyoeatery.com/",
+                phone: "+63 917 720 8630",
+                hours: [
+                    "Su Sunday: Permanently closed",
+                    "Mo Monday: Permanently closed",
+                    "Tu Tuesday: Permanently closed",
+                    "We Wednesday: Permanently closed",
+                    "Th Thursday: Permanently closed",
+                    "Fr Friday: Permanently closed",
+                    "Sa Saturday: Permanently closed"
+                ],
+                description: "Toyo Eatery, a celebrated name in the Philippines' vibrant culinary scene, continues to redefine Filipino cuisine with its inventive spirit. Even amidst recent challenges, the restaurant, alongside its beloved sister bakeshop Panaderya Toyo, has delighted diners with imaginative bilao presentations, showcasing their popular barbecue skewers and signature silog fried rice. Now, the spotlight shines even brighter on the creative force behind it all, Chef Jordy Navarra, as he gears up to host the highly anticipated Philippine installment of the prestigious global food event, Gelinaz! This exciting development promises to further solidify Toyo Eatery's position as a culinary destination pushing the boundaries of Filipino flavors on an international stage.",
+                specialtyImage: "Images/yakitori.jpg",
+                specialtyText: "Yakitori"
+            },
+            1: {
+                address: "Plaza San Luis Complex, General Luna St, Intramuros, Manila, 1002 Metro Manila, Philippines",
+                website: "",
+                phone: "+63 2 8527 4083",
+                hours: [
+                    "Su Sunday: 9:00 AM–9:00 PM",
+                    "Mo Monday: 9:00 AM–9:00 PM",
+                    "Tu Tuesday: 9:00 AM–9:00 PM",
+                    "We Wednesday: 9:00 AM–9:00 PM",
+                    "Th Thursday: 9:00 AM–9:00 PM",
+                    "Fr Friday: 9:00 AM–9:00 PM",
+                    "Sa Saturday: 9:00 AM–9:00 PM"
+                ],
+                description: "Nestled on General Luna Street in Manila, Barbara's Heritage Restaurant offers a truly enchanting dining experience. More than just a meal, it's an immersion into Filipino history and culture, set against a backdrop of romance. Guests are treated to captivating traditional dance performances and live music, with performers adorned in native costumes. The menu features a delectable array of authentic Filipino dishes, including the classic chicken adobo and the crispy lechon kawali. Resident musicians provide a delightful lunchtime serenade, setting the stage for an even more vibrant evening as dancers join in, creating an unforgettable cultural spectacle.",
+                specialtyImage: "Images/bucatini.jpg",
+                specialtyText: "Bucatini"
+            },
+            2: {
+                address: "192 Wilson, San Juan, Metro Manila, Philippines",
+                website: "https://lagrima.pickup.ph/",
+                phone: "+63 936 917 7372",
+                hours: [
+                    "Su Sunday: 11:00 AM–11:00 PM",
+                    "Mo Monday: 11:00 AM–11:00 PM",
+                    "Tu Tuesday: 11:00 AM–11:00 PM",
+                    "We Wednesday: 11:00 AM–11:00 PM",
+                    "Th Thursday: 11:00 AM–11:00 PM",
+                    "Fr Friday: 11:00 AM–11:00 PM",
+                    "Sa Saturday: 11:00 AM–11:00 PM"
+                ],
+                description: "Craving authentic Mexican flavors? Lágrima San Juan is a go-to destination that consistently delivers a delightful dining experience. Their nacho chips boast a satisfying crispness, setting the stage for the star of the show: the tacos. These are lauded for their harmonious blend of flavorful fillings nestled in perfectly sized tortillas. You'll find the portion sizes to be just right, leaving you feeling satisfied. To elevate your meal, don't miss their Mezcal Margarita, a highly recommended and excellent pairing. Be aware that seating might be limited, a testament to the restaurant's popularity and the quality of the food that makes it well worth any potential wait.",
+                specialtyImage: "Images/nachos.jpg",
+                specialtyText: "Nachos"
+            },
+            3: {
+                address: "Pasay, Metro Manila, Philippines",
+                website: "https://eatdrinkhilton.com/china-blue-by-jereme-leung-conrad-manila/",
+                phone: "+63 917 650 4043",
+                hours: [
+                    "Su Sunday: 6:00 PM–10:00 PM",
+                    "Mo Monday: 6:00 PM–10:00 PM",
+                    "Tu Tuesday: 6:00 PM–10:00 PM",
+                    "We Wednesday: 6:00 PM–10:00 PM",
+                    "Th Thursday: 6:00 PM–10:00 PM",
+                    "Fr Friday: 6:00 PM–10:00 PM",
+                    "Sa Saturday: 6:00 PM–10:00 PM"
+                ],
+                description: "Nestled within the opulent Conrad Hotel in Manila, China Blue By Jereme Leung presents a refined and contemporary take on classic Chinese cuisine. The restaurant's aesthetic is immediately striking, with dazzling blue chandeliers casting a warm glow over comfortable seating arrangements. Floor-to-ceiling glass windows offer breathtaking panoramas of the iconic Manila Bay, while soaring high ceilings contribute to an airy and spacious ambiance. Here, guests can savor exquisite dishes while being captivated by the stunning bay views, creating a truly memorable dining experience.",
+                specialtyImage: "Images/hotpot.jpg",
+                specialtyText: "Hot pot"
+            }
+        };
+
+        function updateRestaurantDetails(activeIndex) {
+            const details = restaurantDetails[activeIndex];
+            
+            const activeItem = carousel.querySelector(".carousel-item.active");
+            const mapUrl = activeItem.getAttribute("data-map-url");
+            if (mapUrl) {
+                mapIframe.src = mapUrl;
+            }
+            
+            detailsContainer.innerHTML = `
+                <h5>Address</h5>
+                <p>${details.address}</p>
+                ${details.website ? `<h5>Website</h5><p><a href="${details.website}" target="_blank" style="color: white;">${details.website}</a></p>` : ''}
+                <h5>Phone</h5>
+                <p>${details.phone}</p>
+                <h5>Hours</h5>
+                ${details.hours.map(hour => `<p class="mb-1">${hour}</p>`).join('')}
+            `;
+            
+            restaurantDescription.innerHTML = details.description;
+            
+            specialtyImageContainer.innerHTML = `
+                <img src="${details.specialtyImage}" class="specialty-image" alt="${details.specialtyText}">
+                <div class="specialty-text">${details.specialtyText}</div>
+            `;
+        }
+
+        updateRestaurantDetails(0);
+
+        carousel.addEventListener("slid.bs.carousel", function () {
+            const activeIndex = Array.from(carousel.querySelectorAll('.carousel-item')).indexOf(carousel.querySelector(".carousel-item.active"));
+            updateRestaurantDetails(activeIndex);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script></body>
+</html>

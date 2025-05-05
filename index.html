@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsyaFoodie Layout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">    <style>
+        .navbar-withcss {
+            position: sticky;
+            top: 0;
+            background-color: #9c0f0f;
+            color: white;
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-toptext {
+            font-weight: bold;
+            font-size: 30px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .nav-link {
+            color: white !important;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 17px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #ffcba4 !important;
+        }
+
+        .contact-info {
+            font-size: 14px;
+        }
+
+        .welcome-section {
+            padding: 20px;
+        }
+
+        .welcome-heading {
+            color: #000000;
+            font-size: 40px;
+        }
+
+        .welcome-heading1 {
+            color: #9c0f0f;
+            font-size: 40px;
+        }
+
+        .navigate-section {
+            background-color: #000000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #recipeCarousel {
+            background-color: #000;
+        }
+
+        .carousel-item {
+            min-height: 450px;
+        }
+
+        .carousel-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .carousel-caption-custom {
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+        }
+
+        .btn-custom {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .recipe-links {
+            margin-bottom: 15px;
+        }
+
+        .recipe-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .view-button {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .view-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .footer {
+            background-color: #9c0f0f;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list-item {
+            margin-bottom: 8px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        img.img-fluid {
+        max-width: 100%;
+        height: auto;
+        display: block;
+}
+
+        
+    </style>
+</head>
+<body>
+    <div class="navbar-withcss">
+        <div class="container-xxl navbar-content">
+            <div class="row">
+                <div class="col-12 text-start contact-info" style="font-size: 15px;">
+                    +63 545 329 9273
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="navbar-toptext">ASYAFOODIE</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center my-3">
+                    <ul class="nav flex-wrap justify-content-center">
+                        <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="restaurant.html">Restaurant</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="recipe.html">Recipe</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="#">Guides</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xxl mt-4">
+        <div class="row">
+            <div class="col-md-6 welcome-section">
+                <h2 class="welcome-heading">WELCOME TO</h2>
+                <h2 class="welcome-heading1">ASYAFOODIE</h2>
+                <br>
+                <p style="font-size: 1.4rem;">Experience a multi-Asian cuisine collection featuring unique dishes from different countries—each one sure to earn a place in your family's recipe book. Explore a variety of recommended restaurants across the Philippines and check out our special food guide crafted to help you eat well during stressful times or while studying.</p>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img src="Images/ASYAFOODIE.png" alt="Asian Family Dining" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="navigate-section mt-4">
+        <h2>NAVIGATE THROUGH OUR CHOICES</h2>
+    </div>
+
+    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container-xxl py-4">
+                    <div class="row align-items-start">
+                        <div class="col-md-6 text-center">
+                            <img src="Images/katsu.png" class="img-fluid w-100" style="max-height: 450px; object-fit: contain;" alt="Dish 2">
+                        </div>
+                        <div class="col-md-6 carousel-caption-custom">
+                            <h3>MIND-BLOWING RECIPES</h3>
+                            <h5 class="text-secondary">RECREATE TASTY DISHES</h5>
+                            <p style="font-size: 1.2rem;">Check out iconic dishes recipes that we have collected around Asia.</p>
+                            <hr style="color: #ffffff;">
+                            <p style="font-size: 1.1rem;">Katsudon | Adobo | Peking Duck | Pad Thai <br>
+                             Takoyaki | Turon | Jasmine Tea</p>
+                            <a href="recipe.html" class="btn btn-custom">VIEW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="container-xxl py-4">
+                    <div class="row align-items-start">
+                        <div class="col-md-6 text-center">
+                            <img src="Images/restaurant1.png" class="img-fluid w-100" style="max-height: 425px; object-fit: contain;" alt="Dish 2">
+                        </div>
+                        <div class="col-md-6 carousel-caption-custom">
+                            <h3>FOOD HAVEN</h3>
+                            <h5 class="text-secondary">VISIT THESE AMAZING PLACES</h5>
+                                                        
+                            <p style="font-size: 1.2rem;">Check out these local restaurants where you can taste their Asian delicacies!</p>
+                            
+                            <hr style="color: #ffffff;">
+            
+                            <p style="font-size: 1.1rem;">Toyo Eatery | Barbara's Heritage Restaurant <br>
+                                Lágrima San Juan | China Blue</p>
+                            <a href="restaurant.html" class="btn btn-custom">VIEW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="container-xxl py-4">
+                    <div class="row align-items-start">
+                        <div class="col-md-6 text-center">
+                            <img src="Images/GuideBook.png" class="img-fluid w-100" style="max-height: 425px; object-fit: contain;" alt="Dish 2">
+                        </div>
+                        <div class="col-md-6 carousel-caption-custom">
+                            <h3>FOOD GUIDE</h3>
+                            <h5 class="text-secondary">USEFUL FOOD RECOMMENDATIONS TRY OUT THESE TIPS!</h5>
+                                                        
+                            <p style="font-size: 1.2rem;">Explore our food guide, try these out while studying or stressed.</p>
+                            
+                            <hr style="color: #ffffff;">
+            
+                            <p style="font-size: 1.1rem;">Toyo Eatery | Barbara's Heritage Restaurant <br>
+                                Lágrima San Juan | China Blue</p>
+                            <a href="#" class="btn btn-custom">VIEW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div class="container-fluid footer mt-4">
+        <div class="container-xxl">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5 class="footer-heading">RESTAURANT</h5>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="#" class="footer-link">Restaurant1</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Restaurant2</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Restaurant3</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Restaurant4</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">RECIPE</h5>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="#" class="footer-link">Recipe1</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Recipe2</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Recipe3</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Recipe4</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">GUIDES</h5>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="#" class="footer-link">Guide1</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Guide2</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">CONTACT</h5>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="#" class="footer-link">Contact1</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Contact2</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script></body>
+</html>
